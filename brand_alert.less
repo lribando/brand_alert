@@ -1,0 +1,168 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.brand-alert-wrapper {
+  position: fixed;
+  z-index: 10;
+  left: 50%;
+  bottom: 20px;
+
+  @media @viewport-tiny,
+         @viewport-narrow {
+    left: 0;
+    width: 100%;
+  }
+}
+
+.brand-alert-opt-in {
+  background-color: #191919;
+  position: relative;
+  left: -50%;
+  width: auto;
+  height: 46px;
+  white-space: nowrap;
+  max-width: 940px;
+  min-width: 640px;
+  padding-left: 10px;
+  border: 0;
+  color: #FFF;
+  .serif;
+  font-size: 15px;
+  .opacity(0);
+  pointer-events: none;
+  .transition(opacity 1s ease-out 1s);
+  visibility: hidden;
+
+  @media @viewport-tiny {
+    .box-sizing(border-box);
+    height: auto;
+    margin: 0 16px;
+    min-width: 288px;
+    position: static;
+    padding: 11px 9px 11px 3px;
+    width: 80%;
+    width: ~"calc(100% - 32px)";
+  }
+
+  @media @viewport-narrow {
+    .box-sizing(border-box);
+    height: auto;
+    margin: 0 auto;
+    max-height: 76px;
+    max-width: 480px;
+    min-width: 480px;
+    padding: 12px;
+    position: static;
+  }
+
+  .opt-in-close {
+    padding-top: 3px;
+    cursor: pointer;
+    white-space: nowrap;
+    float: right;
+    border: 0;
+    background: transparent url(/img/web-search/close_x.gif) no-repeat;
+    background-size: 13px 13px;
+    width: 13px;
+    height: 13px;
+    margin: 3px;
+  }
+
+  &.follow {
+    .opacity(90);
+    visibility: visible;
+    pointer-events: auto;
+    .confirm-text {
+      opacity: 0;
+      display: none;
+    }
+  }
+
+  &.confirmed {
+    background-color: #ce9500;
+    visibility: visible;
+
+    .opt-in-close,
+    .message-text {
+      display: none;
+    }
+
+    .confirm-text {
+      display: block;
+    }
+  }
+
+  &.brand-alert-hide {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+  }
+
+  .message-text,
+  .confirm-text {
+    font-style: italic;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    height: 46px;
+    padding-top: 13px;
+
+    @media @viewport-tiny {
+      height: auto;
+      line-height: 20px;
+      margin: 0;
+      padding: 0;
+      white-space: normal;
+    }
+
+    @media @viewport-narrow {
+      height: auto;
+      line-height: 20px;
+      margin: 0;
+      padding: 0;
+      white-space: normal;
+    }
+
+    .opt-in-confirm {
+      color: @accent;
+      .sans;
+      white-space: nowrap;
+      padding-right: 24px;
+      padding-left: 5px;
+      text-decoration: none;
+      font-style: normal;
+
+      @media @viewport-tiny {
+        margin: 0 auto;
+        padding: 0;
+      }
+
+      &:hover {
+        text-decoration: underline;
+        color: @accent;
+      }
+    }
+  }
+}
+
+@media @viewport-medium {
+
+  .brand-alert-opt-in {
+    width: 550px;
+    height: auto;
+    left: -50%;
+    min-width: 550px;
+    max-height: 66px;
+    white-space: normal;
+  }
+
+  .message-text,
+  .confirm-text {
+    line-height: 20px;
+    white-space: normal;
+  }
+
+  &.confirmed {
+    height: 46px;
+  }
+}
